@@ -22,6 +22,20 @@ export class AuthController {
     return await this.authService.login(loginDto);
   }
 
+  @UseGuards(AuthGuard('google'))
+  @Get('login/google')
+  async googleLogin() {}
+
+  @UseGuards(AuthGuard('google'))
+  @Get('google/callback')
+  async googleCallback(@Req() req: any, @Res() res: any) {
+    const accessToken = await this.authService.getToken({
+      sub: req.user.id.toString(),
+      username: req.user.displayName,
+    });
+    return res.json({ accessToken });
+  }
+
   @UseGuards(AuthGuard('github'))
   @Get('login/github')
   async githubLogin() {}

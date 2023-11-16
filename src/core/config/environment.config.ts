@@ -8,4 +8,6 @@ export const ENV = cleanEnv(process.env, {
   JWT_ACCESS_EXP: str(),
   GITHUB_CLIENT_ID: str(),
   GITHUB_CLIENT_SECRET: str(),
+  GOOGLE_CLIENT_ID: str(),
+  GOOGLE_CLIENT_SECRET: str(),
 });
