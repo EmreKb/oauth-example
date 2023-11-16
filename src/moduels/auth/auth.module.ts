@@ -2,11 +2,11 @@ import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { ENV } from 'src/core/config';
-import { JwtStrategy } from './strategy';
+import { GithubStrategy, JwtStrategy } from './strategy';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 
-const strategies = [JwtStrategy];
+const strategies = [JwtStrategy, GithubStrategy];
 
 @Module({
   imports: [
